@@ -204,14 +204,6 @@ public protocol CBPinEntryViewDelegate: class {
             button.titleLabel?.font = entryFont
             button.layer.cornerRadius = entryCornerRadius
 
-            // ADDED BY VISHAL
-            button.layer.cornerRadius = 5
-            button.sshadowColor = .black
-            button.sshadowOffset = .zero
-            button.sshadowOpacity = 0.15
-            button.sshadowRadius = 3
-            // *************************
-            
             // The text could either be underlined or have a border
             if isUnderlined {
                 button.addBottomBorder(thickness: entryBorderWidth, color: entryDefaultBorderColour)
@@ -268,8 +260,6 @@ public protocol CBPinEntryViewDelegate: class {
         }
         
         textField.becomeFirstResponder()
-        
-        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
     }
 
     open func setError(isError: Bool) {
@@ -334,9 +324,7 @@ public protocol CBPinEntryViewDelegate: class {
         super.resignFirstResponder()
         
         setError(isError: false)
-        
-        IQKeyboardManager.shared.shouldResignOnTouchOutside = false
-        
+                
         return textField.resignFirstResponder()
     }
 }
